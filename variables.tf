@@ -4,6 +4,7 @@
 variable "gcp_project" {
   description = "The name of the GCP project to use"
   type        = string
+  default     = "jenkins-x"
 }
 
 // ----------------------------------------------------------------------------
@@ -12,7 +13,7 @@ variable "gcp_project" {
 variable "cluster_name" {
   description = "Name of the Kubernetes cluster to create"
   type        = string
-  default     = ""
+  default     = "jenkins-x-cluster"
 }
 
 variable "cluster_location" {
@@ -24,7 +25,7 @@ variable "cluster_location" {
 variable "resource_labels" {
   description = "Set of labels to be applied to the cluster"
   type        = map(string)
-  default     = {}
+  default     = { "provider" : "jx" }
 }
 
 // ----------------------------------------------------------------------------
@@ -108,11 +109,13 @@ variable "gsm" {
 variable "jx_git_url" {
   description = "URL for the Jenins X cluster git repository"
   type        = string
+  default     = "https://github.com/Kenny-Long-Test-Organization/jx-cluster"
 }
 
 variable "jx_bot_username" {
   description = "Bot username used to interact with the Jenkins X cluster git repository"
   type        = string
+  default     = "kenneth-alan-long"
 }
 
 variable "jx_bot_token" {
